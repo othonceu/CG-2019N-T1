@@ -23,7 +23,9 @@ const unsigned int UPDATE_INTERVAL_MS = 1000 / FRAMES_PER_SECOND;
 // Control when was the last update() called.
 int gTimeLastUpdateMs = 0;
 
-int step = 0;
+
+int vermelhoR = 0;
+int verdeR = 0;
 GLfloat altu = 0.5f; 
 
 // Control the value of each color channel used to display a square.
@@ -61,7 +63,7 @@ void renderCoordinateAxis()
 void display()
 {
 	// Move the camera away from the origin along the Z axis by 10 pixels.
-	glTranslatef(0, 0, -10.0f);
+	glTranslatef(0, 0, -15.0f);
 
 	// Render the X and Y axis to guide ourselves.
 	renderCoordinateAxis();
@@ -73,15 +75,18 @@ void display()
 	glColor3f(r, g, b);
 
 	// cubo de baixo
-	if (step >= 6) glRotatef(30.0f, 0.0f, 0.0f, 1.0f);
-	if (step >= 5) glTranslatef(0.0f, 0.5f, 0.0f);
-	if (step >= 4) glutWireCube(1.0f);
+	//if (step >= 6) glRotatef(30.0f, 0.0f, 0.0f, 1.0f);
+	//if (step >= 5) glTranslatef(0.0f, 0.5f, 0.0f);
+	//if (step >= 4) glutWireCube(1.0f);
 
 	//if (step >= 3) glTranslatef(0.0f, 0.5f, 0.0f);
 
 	
 	//if (step >= 2) glRotatef(30.0f, 0.0f, 0.0f, 1.0f);
 	//if (step >= 1) glTranslatef(0.0f, 0.5f, 0.0f);
+	
+
+	//gerando rotações
 	
 	// Preto
 	glColor3f(0, 0, 0);
@@ -90,18 +95,27 @@ void display()
 
 	// Vermelho
 	glColor3f(1, 0, 0);
+	glRotatef(vermelhoR,0.0f, 0.0f, 1.0f);
 	glTranslatef(0.0f,1.0f, 0.0f);
+	
 	glutWireCube(1.0f);
 	
 	
 	// cubo verde
+	
+
 	glColor3f(0, 1, 0);
+	glRotatef(verdeR,0.0f, 0.0f, 1.0f);
 	glTranslatef(0.0f, 1.0f, 0.0f);
 	glutWireCube(1.0f);
-
-	// cubo azul
+	
+	// cubo azulq
 	glColor3f(0,0, 1);
-	glTranslatef(0.0f,1.0f, 0.0f);
+
+	
+	glScalef(1,2.0f,1);
+	glTranslatef(0.0f,0.8f, 0.0f);
+	
 	glutWireCube(1.0f);
 }
 
@@ -121,10 +135,46 @@ void keyboard(unsigned char key, int x, int y)
 		// ESC key
 		exit(0);
 	}
+	
+	if (key == 'q') {
+		if(vermelhoR < 30){		
+		vermelhoR+= 15;
+		}
+	}
 
+	if (key == 'a') {
+		if(vermelhoR > -30){		
+		vermelhoR -= 15;
+		}
+	}
+
+
+	if (key == 'w') {
+		if(verdeR < 30){		
+		verdeR+= 15;
+		}
+	}
+
+	if (key == 's') {
+		if(verdeR > -30){		
+		verdeR -= 15;
+		}
+	}
+
+
+	
+
+
+
+    /*
 	if (key == 'n') {
 		step += 1;
 	}
+	if (key == 'n') {
+		step += 1;
+	}
+	*/
+	
 }
 
 void mouse(int button, int state, int x, int y)
