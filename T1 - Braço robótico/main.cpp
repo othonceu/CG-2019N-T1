@@ -26,6 +26,7 @@ int gTimeLastUpdateMs = 0;
 
 int vermelhoR = 0;
 int verdeR = 0;
+int azulR = 0;
 GLfloat altu = 0.5f; 
 
 // Control the value of each color channel used to display a square.
@@ -46,7 +47,7 @@ void renderCoordinateAxis()
 		glVertex2f(0.0, 0.0);
 		glVertex2f(10.0, 0.0);
 	glEnd();
-
+	
 	// Y axis - blue color
 	glColor3f(0, 0, 1);
 	glBegin(GL_LINES);
@@ -111,8 +112,7 @@ void display()
 	
 	// cubo azulq
 	glColor3f(0,0, 1);
-
-	
+	glRotatef(azulR,0.0f, 0.0f, 1.0f);
 	glScalef(1,2.0f,1);
 	glTranslatef(0.0f,0.8f, 0.0f);
 	
@@ -160,7 +160,18 @@ void keyboard(unsigned char key, int x, int y)
 		verdeR -= 15;
 		}
 	}
+	
+	if (key == 'e') {
+		if(azulR < 30){		
+		azulR = 15;
+		}
+	}
 
+	if (key == 'd') {
+		if(azulR > -30){		
+		azulR -= 15;
+		}
+	}
 
 	
 
