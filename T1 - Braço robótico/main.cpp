@@ -1,9 +1,9 @@
 /**
- * This demo shows how to periodically call an update() function and calculate
- * the time difference between those updates, i.e. delta time.
+ * Implementar um braço mecânico como primeiro trabalho de 
+ * computação gráfica
  *
- * Author: Fernando Bevilacqua <fernando.bevilacqua@uffs.edu.br>
- * License: MIT
+ * Author: Othon Paiva Arêas Costa <othonceu7@gmail.com>
+ * 
  */
 
 #include <GL/glut.h>
@@ -11,7 +11,7 @@
 #include <iostream>
 #include "math.h"
 
- // Constants to define the width/height of the window
+// Constants to define the width/height of the window
 const int WIDTH = 600;
 const int HEIGHT = 600;
 
@@ -135,7 +135,7 @@ void keyboard(unsigned char key, int x, int y)
 		// ESC key
 		exit(0);
 	}
-	
+	//regular o ângulo vermelho
 	if (key == 'q') {
 		if(vermelhoR < 30){		
 		vermelhoR+= 15;
@@ -148,7 +148,7 @@ void keyboard(unsigned char key, int x, int y)
 		}
 	}
 
-
+	//regular o ângulo verde
 	if (key == 'w') {
 		if(verdeR < 30){		
 		verdeR+= 15;
@@ -160,7 +160,7 @@ void keyboard(unsigned char key, int x, int y)
 		verdeR -= 15;
 		}
 	}
-	
+	//regular o ângulo azul
 	if (key == 'e') {
 		if(azulR < 30){		
 		azulR = 15;
@@ -173,18 +173,6 @@ void keyboard(unsigned char key, int x, int y)
 		}
 	}
 
-	
-
-
-
-    /*
-	if (key == 'n') {
-		step += 1;
-	}
-	if (key == 'n') {
-		step += 1;
-	}
-	*/
 	
 }
 
