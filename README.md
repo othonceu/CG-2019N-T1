@@ -1,7 +1,6 @@
 # CG-2019N-T1
 T1 - Braço robótico/
-Nome: Othon Paiva Arêas Costa/
-Matricula : 1311100048
+Nome: Othon Paiva Arêas Costa
 
 Esse trabalho foi desenvolvido pelo Linux:
 
